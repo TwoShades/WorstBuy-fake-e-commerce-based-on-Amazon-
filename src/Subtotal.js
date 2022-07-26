@@ -9,6 +9,14 @@ function Subtotal() {
     // const history = useHistory();
     const [{ basket }, dispatch] = useStateValue();
 
+
+    let totalValue = 0;
+
+    basket.forEach((item) => totalValue += item.price)
+
+
+
+
     return (
         <div className='subtotal'>
             <CurrencyFormat
@@ -16,7 +24,7 @@ function Subtotal() {
                     <>
                         <p>
                             Subtotal ({basket.length} items):
-                            <strong>{` ${value} `}</strong></p>
+                            <strong>{` ${Math.round(totalValue * 100) / 100} `}</strong></p>
                         <small className='subtotal__gift'>
                             <input type="checkbox" />This order contains a gift
                         </small>

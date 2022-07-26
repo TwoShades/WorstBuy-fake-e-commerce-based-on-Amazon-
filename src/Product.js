@@ -1,10 +1,17 @@
 import React from "react";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
+import {Link, Route, Routes, useLocation} from "react-router-dom";
+import Checkout from "./Checkout";
+import Home from "./Home";
 
 function Product({ id, title, image, price, rating }) {
 
+  let productTest = { id, title, image, price, rating }
   const [{ basket }, dispatch] = useStateValue();
+
+  const location = useLocation();
+  console.log(location)
 
   console.log('this is the basket ->', basket);
 
@@ -37,7 +44,9 @@ function Product({ id, title, image, price, rating }) {
               <p>⭐</p>
             ))}
         </div>
-        <img src={image} alt="" />
+        <Link to={"/ProductPage/" + id} >
+          <img src={image} alt="" />
+        </Link>
 
         <button onClick={addToBasket}>Add to cart</button>
       </div>
