@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-currency-format": "^1.1.0",
+    "react-router-dom": "^5.3.3"
+  }
+}
